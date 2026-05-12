@@ -1,7 +1,11 @@
 import { z } from 'zod';
 
 const EnvSchema = z.object({
-  SEATS_AERO_API_KEY: z.string().min(1),
+  GMAIL_CLIENT_ID: z.string().min(1),
+  GMAIL_CLIENT_SECRET: z.string().min(1),
+  GMAIL_REFRESH_TOKEN: z.string().min(1),
+  GMAIL_USER_EMAIL: z.string().email(),
+  SEATS_AERO_LABEL: z.string().default('seats-aero/real-alerts'),
   TELEGRAM_BOT_TOKEN: z.string().min(1),
   TELEGRAM_CHAT_ID: z.string().min(1),
   LOG_LEVEL: z.enum(['trace', 'debug', 'info', 'warn', 'error', 'fatal']).default('info'),

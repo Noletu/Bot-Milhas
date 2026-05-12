@@ -51,11 +51,11 @@ async function main(): Promise<void> {
 
   // Collect award inventory from Gmail (Seats.aero email alerts)
   const gmailCreds: GmailCredentials = {
-    clientId: process.env['GMAIL_CLIENT_ID'] ?? '',
-    clientSecret: process.env['GMAIL_CLIENT_SECRET'] ?? '',
-    refreshToken: process.env['GMAIL_REFRESH_TOKEN'] ?? '',
-    userEmail: process.env['GMAIL_USER_EMAIL'] ?? '',
-    label: process.env['SEATS_AERO_LABEL'] ?? 'seats-aero/real-alerts',
+    clientId: env.GMAIL_CLIENT_ID,
+    clientSecret: env.GMAIL_CLIENT_SECRET,
+    refreshToken: env.GMAIL_REFRESH_TOKEN,
+    userEmail: env.GMAIL_USER_EMAIL,
+    label: env.SEATS_AERO_LABEL,
   };
   const gmailResult = await fetchGmailAlerts(gmailCreds);
   if (gmailResult.isErr()) {

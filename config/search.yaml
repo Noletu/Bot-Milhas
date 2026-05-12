@@ -32,6 +32,8 @@ search:
       SMILES: 90000
       QATAR_PRIVILEGE: 40000
 
+  require_direct: true
+
   trip_constraints:
     min_trip_days: 7
     max_trip_days: 21

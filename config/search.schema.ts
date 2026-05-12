@@ -28,6 +28,7 @@ export const SearchConfigSchema = z.object({
     pax: z.number().int().positive(),
     outbound: LegSchema,
     inbound: LegSchema,
+    require_direct: z.boolean().default(false),
     trip_constraints: TripConstraintsSchema,
   }),
   priority_rules: z.object({
