@@ -1,0 +1,57 @@
+search:
+  origins: [GRU, GIG]
+  destinations: [FCO, MAD, CDG]
+  pax: 2
+
+  outbound:
+    cabin: [BUSINESS, PREMIUM_BUSINESS]
+    date_window:
+      from: "2027-04-01"
+      to: "2027-11-15"
+    max_miles_per_pax:
+      LATAM_PASS: 130000
+      LATAM_PASS_PROMO: 110000
+      IBERIA_PLUS: 65000
+      BRITISH_AIRWAYS: 75000
+      QATAR_PRIVILEGE: 90000
+      AVIANCA_LIFEMILES: 80000
+      TAP_MILES_GO: 160000
+      AEROPLAN: 80000
+      UNITED_MILEAGEPLUS: 90000
+      SMILES: 280000
+
+  inbound:
+    cabin: [ECONOMY]
+    date_window:
+      from: "2027-04-15"
+      to: "2027-11-30"
+    max_miles_per_pax:
+      LATAM_PASS: 60000
+      IBERIA_PLUS: 25000
+      BRITISH_AIRWAYS: 30000
+      SMILES: 90000
+      QATAR_PRIVILEGE: 40000
+
+  trip_constraints:
+    min_trip_days: 7
+    max_trip_days: 21
+    require_both_legs_in_alert: false
+
+priority_rules:
+  RED_alert:
+    - "promo LATAM Business + inventário J confirmado mesma janela"
+    - "2 J seats LATAM Pass tabela fixa em rota direta (FCO direto)"
+  YELLOW_alert:
+    - "promo LATAM Business sem confirmação inventário"
+    - "1 J seat só (precisaria split de booking)"
+  GREEN_alert:
+    - "Iberia Plus 2 J GRU-MAD off-peak 11-13 meses out"
+    - "Qatar Qsuite 2 J via DOH (apesar do tempo de conexão)"
+    - "ITA Airways 2 J GRU-FCO via parceiro Star Alliance"
+
+dedupe:
+  reset_after_days: 7
+
+quiet_hours:
+  start: "23:00"
+  end: "07:00"

@@ -1,0 +1,55 @@
+Delivered-To: anonymous@example.com
+From: "seats.aero" <alerts@seats.aero>
+To: anonymous@example.com
+Subject: =?UTF-8?Q?=F0=9F=94=94_More_flights_found_for_your_alert_from_DFW_to_LAX?=
+MIME-Version: 1.0
+Content-Type: text/html; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+Message-ID: <fixture-001@example.com>
+Date: Mon, 11 May 2026 16:41:49 +0000
+
+<!DOCTYPE html><html><body><table><tr><td>
+<h1 class="h4">&#127881; We found availability for your alert!</h1>
+<div class="space-y-3">
+<p class="text-gray-700">Good news! We discovered availability for your alert &#34;Teste Alerta&#34; with American AAdvantage in <strong>economy class</strong> for DFW to LAX on 2026-05-24. This flight should now be visible and bookable in search results on the airline website.</p>
+
+<table class="card"><tr><td><table><tr>
+<td class="col-3"><p class="m-0 text-gray-700"><strong>AA1154</strong></p><p class="m-0 text-gray-500 text-xs">Flight</p></td>
+<td class="col-3"><p class="m-0 text-gray-700">DFW/LAX</p><p class="m-0 text-gray-500 text-xs">Routing</p></td>
+<td class="col-6"><p class="m-0 text-gray-700">Economy, 19,000 points + $5.60 USD</p><p class="m-0 text-gray-500 text-xs">Fare</p></td>
+</tr></table></td></tr></table>
+
+<table class="card"><tr><td><table><tr>
+<td class="col-3"><p class="m-0 text-gray-700"><strong>AA500</strong></p><p class="m-0 text-gray-500 text-xs">Flight</p></td>
+<td class="col-3"><p class="m-0 text-gray-700">DFW/LAX</p><p class="m-0 text-gray-500 text-xs">Routing</p></td>
+<td class="col-6"><p class="m-0 text-gray-700">Economy, 20,000 points + $5.60 USD</p><p class="m-0 text-gray-500 text-xs">Fare</p></td>
+</tr></table></td></tr></table>
+
+<table class="card"><tr><td><table><tr>
+<td class="col-3"><p class="m-0 text-gray-700"><strong>AA2041</strong></p><p class="m-0 text-gray-500 text-xs">Flight</p></td>
+<td class="col-3"><p class="m-0 text-gray-700">DFW/LAX</p><p class="m-0 text-gray-500 text-xs">Routing</p></td>
+<td class="col-6"><p class="m-0 text-gray-700">Economy, 18,500 points + $5.60 USD</p><p class="m-0 text-gray-500 text-xs">Fare</p></td>
+</tr></table></td></tr></table>
+
+<table class="card"><tr><td><table><tr>
+<td class="col-3"><p class="m-0 text-gray-700"><strong>AA2005</strong></p><p class="m-0 text-gray-500 text-xs">Flight</p></td>
+<td class="col-3"><p class="m-0 text-gray-700">DFW/LAX</p><p class="m-0 text-gray-500 text-xs">Routing</p></td>
+<td class="col-6"><p class="m-0 text-gray-700">Economy, 24,000 points + $5.60 USD</p><p class="m-0 text-gray-500 text-xs">Fare</p></td>
+</tr></table></td></tr></table>
+
+<table class="card"><tr><td><table><tr>
+<td class="col-3"><p class="m-0 text-gray-700"><strong>AA2827</strong></p><p class="m-0 text-gray-500 text-xs">Flight</p></td>
+<td class="col-3"><p class="m-0 text-gray-700">DFW/LAX</p><p class="m-0 text-gray-500 text-xs">Routing</p></td>
+<td class="col-6"><p class="m-0 text-gray-700">Economy, 28,000 points + $5.60 USD</p><p class="m-0 text-gray-500 text-xs">Fare</p></td>
+</tr></table></td></tr></table>
+
+<p class="text-gray-700">Good luck and safe travels! This alert is continuous and will keep you updated whenever new flights are found.</p>
+<p class="text-gray-500">&#128338; Last Seen: 8 minutes ago (05/11 16:33 UTC)</p>
+</div>
+<table class="btn btn-primary"><tr><td>
+<a href="https://c.seats.aero/CL0/example/fixture-001" target="_blank">View on seats.aero</a>
+</td></tr></table>
+<p class="text-gray-700 text-center">
+<a href="https://c.seats.aero/CL0/unsubscribe/fixture-001" class="text-secondary">Unsubscribe</a>
+</p>
+</td></tr></table></body></html>

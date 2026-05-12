@@ -1,0 +1,93 @@
+{
+  "data": [
+    {
+      "ID": "qf-gru-fco-j-20270715",
+      "RouteID": "gru-fco-qantas",
+      "Source": "qantas",
+      "ParsedDate": "2027-07-15",
+      "YAvailable": false,
+      "WAvailable": false,
+      "JAvailable": true,
+      "FAvailable": false,
+      "YMileageCost": null,
+      "WMileageCost": null,
+      "JMileageCost": 75000,
+      "FMileageCost": null,
+      "YRemainingSeats": 0,
+      "WRemainingSeats": 0,
+      "JRemainingSeats": 2,
+      "FRemainingSeats": 0,
+      "YTaxesCents": null,
+      "WTaxesCents": null,
+      "JTaxesCents": 5000000,
+      "FTaxesCents": null,
+      "Route": {
+        "ID": "gru-fco-qantas",
+        "OriginAirport": "GRU",
+        "DestinationAirport": "FCO",
+        "Distance": 9457,
+        "Source": "qantas"
+      }
+    },
+    {
+      "ID": "ib-gru-mad-j-20270820",
+      "RouteID": "gru-mad-iberia",
+      "Source": "iberia",
+      "ParsedDate": "2027-08-20",
+      "YAvailable": false,
+      "WAvailable": false,
+      "JAvailable": true,
+      "FAvailable": false,
+      "YMileageCost": null,
+      "WMileageCost": null,
+      "JMileageCost": 65000,
+      "FMileageCost": null,
+      "YRemainingSeats": 0,
+      "WRemainingSeats": 0,
+      "JRemainingSeats": 2,
+      "FRemainingSeats": 0,
+      "YTaxesCents": null,
+      "WTaxesCents": null,
+      "JTaxesCents": 3000000,
+      "FTaxesCents": null,
+      "Route": {
+        "ID": "gru-mad-iberia",
+        "OriginAirport": "GRU",
+        "DestinationAirport": "MAD",
+        "Distance": 8332,
+        "Source": "iberia"
+      }
+    },
+    {
+      "ID": "aa-gig-cdg-j-20271001",
+      "RouteID": "gig-cdg-aa",
+      "Source": "american",
+      "ParsedDate": "2027-10-01",
+      "YAvailable": false,
+      "WAvailable": false,
+      "JAvailable": true,
+      "FAvailable": false,
+      "YMileageCost": null,
+      "WMileageCost": null,
+      "JMileageCost": 80000,
+      "FMileageCost": null,
+      "YRemainingSeats": 0,
+      "WRemainingSeats": 0,
+      "JRemainingSeats": 2,
+      "FRemainingSeats": 0,
+      "YTaxesCents": null,
+      "WTaxesCents": null,
+      "JTaxesCents": 4500000,
+      "FTaxesCents": null,
+      "Route": {
+        "ID": "gig-cdg-aa",
+        "OriginAirport": "GIG",
+        "DestinationAirport": "CDG",
+        "Distance": 9200,
+        "Source": "american"
+      }
+    }
+  ],
+  "hasMore": false,
+  "cursor": ""
+}

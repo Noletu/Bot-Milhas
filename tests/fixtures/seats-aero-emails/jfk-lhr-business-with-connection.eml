@@ -1,0 +1,31 @@
+Delivered-To: anonymous@example.com
+From: "seats.aero" <alerts@seats.aero>
+To: anonymous@example.com
+Subject: =?UTF-8?Q?=F0=9F=94=94_More_flights_found_for_your_alert_from_JFK_to_LHR?=
+MIME-Version: 1.0
+Content-Type: text/html; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+Message-ID: <fixture-002@example.com>
+Date: Mon, 11 May 2026 17:04:13 +0000
+
+<!DOCTYPE html><html><body><table><tr><td>
+<h1 class="h4">&#127881; We found availability for your alert!</h1>
+<div class="space-y-3">
+<p class="text-gray-700">Good news! We discovered availability for your alert &#34;Alerta Teste Executiva&#34; with American AAdvantage in <strong>business class</strong> for JFK to LHR on 2026-07-12. This flight should now be visible and bookable in search results on the airline's website.</p>
+
+<table class="card"><tr><td><table><tr>
+<td class="col-3"><p class="m-0 text-gray-700"><strong>AA4376, AA108</strong></p><p class="m-0 text-gray-500 text-xs">Flight</p></td>
+<td class="col-3"><p class="m-0 text-gray-700">JFK/BOS/LHR</p><p class="m-0 text-gray-500 text-xs">Routing</p></td>
+<td class="col-6"><p class="m-0 text-gray-700">Business, 84,500 points + $5.60 USD</p><p class="m-0 text-gray-500 text-xs">Fare</p></td>
+</tr></table></td></tr></table>
+
+<p class="text-gray-700">Good luck and safe travels! This alert is continuous and will keep you updated whenever new flights are found.</p>
+<p class="text-gray-500">&#128338; Last Seen: 20 minutes ago (05/11 16:43 UTC)</p>
+</div>
+<table class="btn btn-primary"><tr><td>
+<a href="https://c.seats.aero/CL0/example/fixture-002" target="_blank">View on seats.aero</a>
+</td></tr></table>
+<p class="text-gray-700 text-center">
+<a href="https://c.seats.aero/CL0/unsubscribe/fixture-002" class="text-secondary">Unsubscribe</a>
+</p>
+</td></tr></table></body></html>
