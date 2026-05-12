@@ -10,7 +10,9 @@ import { createLogger } from './logger.js';
 import { openDb } from './storage/db.js';
 import { hasSeenAlert, markAlertSeen, insertEvent } from './storage/repository.js';
 import { fetchAllFeeds } from './collectors/rss.js';
-import { fetchAwardSeats } from './collectors/seats-aero.js';
+import { fetchGmailAlerts } from './collectors/gmail-seats-aero.js';
+import type { GmailCredentials } from './collectors/gmail-seats-aero.js';
+import { awardAlertToSeats } from './collectors/award-alert-to-seats.js';
 import { detectPromos } from './parsers/promo-detector.js';
 import { crossReference } from './engine/cross-reference.js';
 import { shouldSendAlert } from './engine/dedupe.js';
@@ -47,13 +49,24 @@ async function main(): Promise<void> {
   const promos = detectPromos(rssItems);
   logger.info({ promoCount: promos.length }, 'LATAM promos detected');
 
-  // Collect award inventory from Seats.aero
-  const seatsResult = await fetchAwardSeats(env.SEATS_AERO_API_KEY, config);
-  if (seatsResult.isErr()) {
-    logger.warn({ err: seatsResult.error }, 'Seats.aero collection partial or failed');
+  // Collect award inventory from Gmail (Seats.aero email alerts)
+  const gmailCreds: GmailCredentials = {
+    clientId: process.env['GMAIL_CLIENT_ID'] ?? '',
+    clientSecret: process.env['GMAIL_CLIENT_SECRET'] ?? '',
+    refreshToken: process.env['GMAIL_REFRESH_TOKEN'] ?? '',
+    userEmail: process.env['GMAIL_USER_EMAIL'] ?? '',
+    label: process.env['SEATS_AERO_LABEL'] ?? 'seats-aero/real-alerts',
+  };
+  const gmailResult = await fetchGmailAlerts(gmailCreds);
+  if (gmailResult.isErr()) {
+    logger.warn({ err: gmailResult.error }, 'Gmail collection failed');
   }
-  const seats = seatsResult.isOk() ? seatsResult.value : [];
-  logger.info({ seatCount: seats.length }, 'Award seats collected');
+  const gmailAlerts = gmailResult.isOk() ? gmailResult.value : [];
+  const seats = gmailAlerts.flatMap(awardAlertToSeats);
+  logger.info(
+    { alertCount: gmailAlerts.length, seatCount: seats.length },
+    'Gmail alerts collected'
+  );
 
   // Cross-reference
   const allAlerts = crossReference(promos, seats);
