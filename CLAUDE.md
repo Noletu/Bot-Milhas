@@ -26,23 +26,37 @@ Agente Node.js/TypeScript que monitora passagens aéreas em milhas Brasil → Eu
 
 | Diretório | Responsabilidade |
 |---|---|
-| `src/collectors/` | Side effects: busca RSS e Seats.aero via HTTP |
-| `src/parsers/` | Pure functions: extrai dados estruturados de feeds |
+| `src/collectors/` | Side effects: RSS, Gmail API (Seats.aero e-mails) |
+| `src/collectors/award-alert-to-seats.ts` | Adapter puro: `AwardAlert[]` → `AwardSeat[]` (legado) |
+| `src/parsers/` | Pure functions: extrai dados estruturados de feeds e e-mails |
 | `src/engine/` | Pure functions: dedupe, prioridade, cross-reference |
 | `src/storage/` | Side effects: SQLite (better-sqlite3, síncrono) |
 | `src/notifier/` | Side effects: envio Telegram via grammy |
 | `config/` | YAML de configuração + schema Zod |
+| `scripts/` | Utilitários locais (não sobem para produção) |
 
 ## Fluxo de execução (`npm run search`)
 
 1. Carregar env (Zod) + config (`config/search.yaml`)
 2. Abrir SQLite + rodar migrations
 3. Coletar RSS feeds → parsear promos LATAM
-4. Consultar Seats.aero → award seats
-5. `crossReference(promos, seats)` → lista de alerts
-6. Filtrar por dedupe (SQLite) + quiet hours
-7. Enviar via Telegram
-8. Persistir eventos no DB
+4. Coletar e-mails Gmail (Seats.aero alerts) → parsear → `AwardAlert[]`
+5. Adapter: `AwardAlert[]` → `AwardSeat[]`
+6. `crossReference(promos, seats)` → lista de alerts
+7. Filtrar por dedupe (SQLite) + quiet hours
+8. Enviar via Telegram
+9. Persistir eventos no DB
+
+## Fonte de inventário: Gmail (não API REST)
+
+A API REST do Seats.aero (partnerapi) é restrita a parceiros comerciais. O bot lê e-mails de alerta do Seats.aero via Gmail API OAuth2.
+
+- Collector: `src/collectors/gmail-seats-aero.ts`
+- Parser: `src/parsers/seats-aero-email.ts` — usa `mailparser` + `cheerio`
+- Schema rico: `AwardAlert` + `FlightOption` em `src/types.ts`
+- Schema legado (engine): `AwardSeat` — preenchido pelo adapter
+
+Para gerar o refresh token: `npm run oauth:bootstrap`
 
 ## Adicionando nova fonte de dados
 
@@ -53,14 +67,13 @@ Agente Node.js/TypeScript que monitora passagens aéreas em milhas Brasil → Eu
 
 ## Fase 2 — Cross-reference avançado
 
-- Implementar YELLOW com confirmação via Qantas FF e AAdvantage
+- Engine consumindo `AwardAlert` rico diretamente (multi-flight comparison)
 - Templates Telegram diferenciados com botões inline (grammy keyboard)
-- Filtro de quiet hours refinado (considerar timezone BRT)
+- Filtro `search.require_direct` aplicado na engine (atualmente apenas no YAML)
+- Confirmação via Qantas FF e AAdvantage para nível YELLOW
 
-## Fase 3 — IMAP e comandos Telegram
+## Fase 3 — Comandos Telegram
 
-- `src/collectors/imap.ts` — imapflow + mailparser
-- Variáveis: `IMAP_HOST`, `IMAP_USER`, `IMAP_PASS`
 - Comandos: `/status`, `/recent`, `/snooze 24h`
 
 ## Out of scope
